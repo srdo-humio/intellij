@@ -1,6 +1,7 @@
 ---
 tasks:
-  Intellij-CE-internal-stable:
+  ij-ce-internal-stable:
+    name: Intellij CE Internal Stable
     platform: ubuntu1804
     build_flags:
       - --define=ij_product=intellij-latest
@@ -11,7 +12,8 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-  Intellij-CE-internal-beta:
+  ij-ce-internal-beta:
+    name: Intellij CE Internal Beta
     platform: ubuntu1804
     build_flags:
       - --define=ij_product=intellij-beta
@@ -22,7 +24,8 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-  Intellij-CE-internal-canary:
+  ij-ce-internal-canary:
+    name: Intellij CE Internal Canary
     platform: ubuntu1804
     build_flags:
       - --define=ij_product=intellij-canary
