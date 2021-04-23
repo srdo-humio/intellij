@@ -26,6 +26,7 @@ tasks:
       - //:ijwb_ce_tests
   ij-ce-internal-canary:
     name: Intellij CE Internal Canary
+    soft_fail: 1
     platform: ubuntu1804
     build_flags:
       - --define=ij_product=invalid-product
@@ -36,4 +37,3 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-    soft_fail: 1
