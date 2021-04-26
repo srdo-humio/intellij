@@ -4,7 +4,7 @@
 INDIRECT_IJ_PRODUCTS = {
     "intellij-latest": "intellij-2020.2",
     "intellij-latest-mac": "intellij-2020.2-mac",
-    "intellij-beta": "intellij-2020.3",
+    "intellij-beta": "intellij-canary",
     "intellij-canary": "intellij-2020.3",
     "intellij-ue-latest": "intellij-ue-2020.2",
     "intellij-ue-latest-mac": "intellij-ue-2020.2-mac",
