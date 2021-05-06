@@ -89,12 +89,59 @@ Th current corresponding IDE versions of these aliases are:
 
 ## Contributions
 
-We may be able to accept contributions in some circumstances. Some caveats:
+We welcome contributions to support new IDE versions. However, to make
+the review process faster and easier, we recommend the following:
+
+  * Try to make changes in smaller patches. A smaller pull request will 
+    make the review faster and more thorough. You are encouraged to have 
+    separate pull requests each focusing on a ceratin incompatible change
+    rather than having a large pull request fixing multiple ones.
+    
+  * Since we continue to support a number of IDE versions while working on a new
+    one, you need to make sure that your proposed changes does not break
+    older versions. Our presubmit pipeline will take care of testing your changes
+    against all the supported versions and lets you know it broke anything.
+    
+  * To facilitate merging your changes into upstream, we recommend following
+    our procedure for supporting SDK backward-compatibility if needed. The code
+    for maintaining SDK compatibility lives in
+    [sdkcompat](https://github.com/bazelbuild/intellij/tree/master/sdkcompat) directory.
+    We follow these three techniques for non-trivial incompatible changes.
+    
+    * **Compat**  
+       Preferred for small changes like a change in the return type of a method. 
+       We add a util-class with only static methods and a private constructor and
+       wrap the changed method by one of the static methods. If the change is small enough,
+       you do not need to create a new util-class and should add a new method in 
+       [BaseSdkCompat class](https://github.com/bazelbuild/intellij/blob/master/sdkcompat/v201/com/google/idea/sdkcompat/general/BaseSdkCompat.java) instead. Example: [pr/2345](https://github.com/bazelbuild/intellij/pull/2345)
+       
+    * **Adapter**  
+       Used when we extend a super class and an overriden method signature changes
+       (e.g. a new parameter is added) or the super class constructor is updated.
+       We create a new class extending the changed super class to override the updated methods appropriately then extend this new class
+       from the plugin code. Example: [pr/2114](https://github.com/bazelbuild/intellij/pull/2114)
+       
+    * **Wrapper**  
+      Created when a new interface is used in a super class constructor. We create
+      a wrapper class that wraps and supplies the old or the new interface based on
+      the SDK version and use this wrapper class in the plugin code.
+      Example: [pr/2166](https://github.com/bazelbuild/intellij/pull/2166)
+
+  * Any compat changes should be commented with #api{API_VERSION}, e.g. #api203.
+    This represents the last API version that requires the code, i.e. the one before
+    the version you aim to support. This is needed to make it easier to find and
+    clean this functionality when paving old versions.
+  
+We aslo accept contributions to fix general issues or adding new features with some caveats:
 
   * Before opening a pull request, first file an issue and discuss potential
     changes with the devs. This will often save you time you would otherwise
     have invested in a patch which can't be applied.
+  * Your changes should target one of the currently supported IDE versions. 
+    You can find a list of these versions [here](https://github.com/bazelbuild/intellij/blob/master/intellij_platform_sdk/build_defs.bzl#L31).
+    Improvements to older versions will not be accepted.
   * We can't accept sylistic, refactoring, or "cleanup" changes.
   * We have very limited bandwidth, and applying patches upstream is a
     time-consuming process. Large patches generally can't be accepted unless
     there's clear value for all our users.
+    
