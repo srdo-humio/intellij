@@ -40,7 +40,7 @@ tasks:
     name: Intellij UE OSS Stable
     platform: ubuntu1804
     build_flags:
-      - --define=ij_product=intellij-ue-oss-ustable
+      - --define=ij_product=intellij-ue-oss-stable
     build_targets:
       - //ijwb/...
     test_flags:
