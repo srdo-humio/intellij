@@ -24,18 +24,6 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:clwb_tests
-  CLion-internal-canary:
-    name: CLion Internal Canary
-    platform: ubuntu1804
-    build_flags:
-      - --define=ij_product=clion-canary
-    build_targets:
-      - //clwb/...
-    test_flags:
-      - --define=ij_product=clion-canary
-      - --test_output=errors
-    test_targets:
-      - //:clwb_tests
   CLion-OSS-stable:
     name: CLion OSS Stable
     platform: ubuntu1804
