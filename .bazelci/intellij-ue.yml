@@ -1,6 +1,20 @@
 ---
-platforms:
-  ubuntu1804:
+tasks:
+  Intellij-UE-internal-stable:
+    name: Intellij UE Internal Stable
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-latest
+    build_targets:
+      - //ijwb/...
+    test_flags:
+      - --define=ij_product=intellij-ue-latest
+      - --test_output=errors
+    test_targets:
+      - //:ijwb_ue_tests
+  Intellij-UE-internal-beta:
+    name: Intellij UE Internal Beta
+    platform: ubuntu1804
     build_flags:
       - --define=ij_product=intellij-ue-beta
     build_targets:
@@ -10,3 +24,53 @@ platforms:
       - --test_output=errors
     test_targets:
       - //:ijwb_ue_tests
+  Intellij-UE-internal-canary:
+    name: Intellij UE Internal Canary
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-canary
+    build_targets:
+      - //ijwb/...
+    test_flags:
+      - --define=ij_product=intellij-ue-canary
+      - --test_output=errors
+    test_targets:
+      - //:ijwb_ue_tests
+  Intellij-UE-OSS-stable:
+    name: Intellij UE OSS Stable
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-oss-stable
+    build_targets:
+      - //ijwb/...
+    test_flags:
+      - --define=ij_product=intellij-ue-oss-stable
+      - --test_output=errors
+    test_targets:
+      - //:ijwb_ue_tests
+  Intellij-UE-OSS-beta:
+    name: Intellij UE OSS Beta
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-oss-beta
+    build_targets:
+      - //ijwb/...
+    test_flags:
+      - --define=ij_product=intellij-ue-oss-beta
+      - --test_output=errors
+    test_targets:
+      - //:ijwb_ue_tests
+  Intellij-UE-OSS-under-dev:
+    name: Intellij UE OSS Under Development
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-oss-under-dev
+    build_targets:
+      - //ijwb/...
+    test_flags:
+      - --define=ij_product=intellij-ue-oss-under-dev
+      - --test_output=errors
+    test_targets:
+      - //:ijwb_ue_tests
+    soft_fail:
+      - exit_status: 1

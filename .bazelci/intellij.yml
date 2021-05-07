@@ -1,6 +1,6 @@
 ---
 tasks:
-  ij-ce-internal-stable:
+  Intellij-CE-internal-stable:
     name: Intellij CE Internal Stable
     platform: ubuntu1804
     build_flags:
@@ -12,7 +12,7 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-  ij-ce-internal-beta:
+  Intellij-CE-internal-beta:
     name: Intellij CE Internal Beta
     platform: ubuntu1804
     build_flags:
@@ -24,7 +24,7 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-  ij-ce-internal-canary:
+  Intellij-CE-internal-canary:
     name: Intellij CE Internal Canary
     platform: ubuntu1804
     build_flags:
@@ -36,9 +36,7 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-    soft_fail:
-      - exit_status: 1
-  ij-ce-oss-stable:
+  Intellij-CE-OSS-stable:
     name: Intellij CE OSS Stable
     platform: ubuntu1804
     build_flags:
@@ -50,7 +48,7 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-  ij-ce-oss-beta:
+  Intellij-CE-OSS-beta:
     name: Intellij CE OSS Beta
     platform: ubuntu1804
     build_flags:
@@ -62,7 +60,7 @@ tasks:
       - --test_output=errors
     test_targets:
       - //:ijwb_ce_tests
-  ij-ce-oss-under-dev:
+  Intellij-CE-OSS-under-dev:
     name: Intellij CE OSS Under Development
     platform: ubuntu1804
     build_flags:
