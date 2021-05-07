@@ -1,18 +1,4 @@
 ---
-platforms:
-  ubuntu1804:
-    build_flags:
-      - --define=ij_product=android-studio-beta
-    build_targets:
-      - //aswb/...
-    test_flags:
-      - --define=ij_product=android-studio-beta
-      - --test_output=errors
-    test_targets:
-      - //:aswb_tests
-
-
----
 tasks:
   Android-Studio-internal-stable:
     name: Android Studio Internal Stable
