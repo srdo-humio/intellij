@@ -11,7 +11,7 @@ tasks:
       - --define=ij_product=android-studio-latest
       - --test_output=errors
     test_targets:
-      - //:aswb_ue_tests
+      - //:aswb_tests
   Android-Studio-internal-beta:
     name: Android Studio Internal Beta
     platform: ubuntu1804
@@ -35,7 +35,7 @@ tasks:
       - --define=ij_product=android-studio-canary
       - --test_output=errors
     test_targets:
-      - //:aswb_ue_tests
+      - //:aswb_tests
   Android-Studio-OSS-stable:
     name: Android Studio OSS Stable
     platform: ubuntu1804
@@ -47,7 +47,7 @@ tasks:
       - --define=ij_product=android-studio-oss-stable
       - --test_output=errors
     test_targets:
-      - //:aswb_ue_tests
+      - //:aswb_tests
   Android-Studio-OSS-beta:
     name: Android Studio OSS Beta
     platform: ubuntu1804
@@ -59,7 +59,7 @@ tasks:
       - --define=ij_product=android-studio-oss-beta
       - --test_output=errors
     test_targets:
-      - //:aswb_ue_tests
+      - //:aswb_tests
   Android-Studio-OSS-under-dev:
     name: Android Studio OSS Under Development
     platform: ubuntu1804
@@ -71,6 +71,6 @@ tasks:
       - --define=ij_product=android-studio-oss-under-dev
       - --test_output=errors
     test_targets:
-      - //:aswb_ue_tests
+      - //:aswb_tests
     soft_fail:
       - exit_status: 1
