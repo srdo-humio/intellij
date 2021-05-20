@@ -75,5 +75,5 @@ tasks:
     test_targets:
       - //:ijwb_ce_tests
     soft_fail:
-      - exit_status: 1
+      - exit_status: 3
 
