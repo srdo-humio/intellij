@@ -1,12 +1,79 @@
 ---
-platforms:
-  ubuntu1804:
+tasks:
+  Aspect-internal-stable:
+    name: Aspect Tests for IJ Internal Stable
+    platform: ubuntu1804
     build_flags:
-      - --define=ij_product=intellij-beta
+      - --define=ij_product=intellij-ue-latest
     build_targets:
       - //aspect:aspect_files
     test_flags:
-      - --define=ij_product=intellij-beta
+      - --define=ij_product=intellij-ue-latest
+      - --test_output=errors
+      - --notrim_test_configuration
+    test_targets:
+      - //aspect/testing/...
+  Aspect-internal-beta:
+    name: Aspect Tests for IJ Internal Beta
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-beta
+    build_targets:
+      - //aspect:aspect_files
+    test_flags:
+      - --define=ij_product=intellij-ue-beta
+      - --test_output=errors
+      - --notrim_test_configuration
+    test_targets:
+      - //aspect/testing/...
+  Aspect-internal-under-dev:
+    name: Aspect Tests for IJ Internal Under Development
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-canary
+    build_targets:
+      - //aspect:aspect_files
+    test_flags:
+      - --define=ij_product=intellij-ue-canary
+      - --test_output=errors
+      - --notrim_test_configuration
+    test_targets:
+      - //aspect/testing/...
+  Aspect-oss-stable:
+    name: Aspect Tests for IJ OSS Stable
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-oss-stable
+    build_targets:
+      - //aspect:aspect_files
+    test_flags:
+      - --define=ij_product=intellij-ue-oss-stable
+      - --test_output=errors
+      - --notrim_test_configuration
+    test_targets:
+      - //aspect/testing/...
+  Aspect-oss-beta:
+    name: Aspect Tests for IJ OSS Beta
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-oss-beta
+    build_targets:
+      - //aspect:aspect_files
+    test_flags:
+      - --define=ij_product=intellij-ue-oss-beta
+      - --test_output=errors
+      - --notrim_test_configuration
+    test_targets:
+      - //aspect/testing/...
+  Aspect-oss-under-dev:
+    name: Aspect Tests for IJ OSS Under Development
+    platform: ubuntu1804
+    build_flags:
+      - --define=ij_product=intellij-ue-oss-under-dev
+    build_targets:
+      - //aspect:aspect_files
+    test_flags:
+      - --define=ij_product=intellij-ue-oss-under-dev
       - --test_output=errors
       - --notrim_test_configuration
     test_targets:
