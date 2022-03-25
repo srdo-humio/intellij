@@ -134,6 +134,7 @@
         overrides="true"/>
     <postStartupActivity implementation="com.google.idea.blaze.java.run.producers.NonBlazeProducerSuppressor"/>
     <actionConfigurationCustomizer implementation="com.google.idea.blaze.java.run.hotswap.BlazeHotSwapAction$Customizer"/>
+    <java.elementFinder implementation="com.google.idea.blaze.java.BlazeJavaElementFinder" order="first"/>
   </extensions>
 
   <project-components>
