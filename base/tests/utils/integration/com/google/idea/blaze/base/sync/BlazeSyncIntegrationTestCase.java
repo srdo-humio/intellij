@@ -56,6 +56,7 @@ import com.google.idea.blaze.base.sync.aspects.BlazeIdeInterface;
 import com.google.idea.blaze.base.sync.aspects.BuildResult;
 import com.google.idea.blaze.base.sync.aspects.strategy.AspectStrategy.OutputGroup;
 import com.google.idea.blaze.base.sync.data.BlazeDataStorage;
+import com.google.idea.blaze.base.sync.data.BlazeProjectDataManager;
 import com.google.idea.blaze.base.sync.projectview.LanguageSupport;
 import com.google.idea.blaze.base.sync.projectview.WorkspaceLanguageSettings;
 import com.google.idea.blaze.base.sync.sharding.ShardedTargetList;
@@ -266,6 +267,15 @@ public abstract class BlazeSyncIntegrationTestCase extends BlazeIntegrationTestC
         throw new RuntimeException(e);
       }
     }
+  }
+
+  protected boolean shouldForceFullSync(SyncMode syncMode, BlazeContext context) {
+    return BlazeSyncManager.getInstance(getProject())
+        .shouldForceFullSync(
+            BlazeProjectDataManager.getInstance(getProject()).getBlazeProjectData(),
+            ProjectStateSyncTask.collectProjectState(getProject(), context),
+            syncMode,
+            context);
   }
 
   protected List<SyncStats> getSyncStats() {
